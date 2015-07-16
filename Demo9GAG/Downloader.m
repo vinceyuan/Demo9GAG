@@ -38,6 +38,7 @@
             post.voteCount = [(NSNumber *)[item valueForKeyPath:@"votes.count"] intValue];
             [posts addObject:post];
         }
+        _next = [responseObject valueForKeyPath:@"paging.next"];
         if (completion) {
             completion(posts, nil);
         }

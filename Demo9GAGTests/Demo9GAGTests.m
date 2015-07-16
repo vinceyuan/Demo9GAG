@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "Downloader.h"
+#import "Post.h"
 
 @interface Demo9GAGTests : XCTestCase
 
@@ -30,17 +31,34 @@
 
     Downloader *downloader = [[Downloader alloc] init];
     downloader.baseUrl = @"http://infinigag-us.aws.af.cm/hot/";
+    // Download the first page
     [downloader downloadWithCompletion:^(NSArray *posts, NSError *error) {
-        NSLog(@"%@", posts);
-        [expectation fulfill];
+        if (!error) {
+            NSLog(@"%@", posts);
+            // Check if we get posts
+            XCTAssertNotNil(posts);
+            XCTAssertNotEqual([posts count], 0);
+
+            // Download the next page
+            [downloader downloadWithCompletion:^(NSArray *posts2, NSError *error2) {
+                if (!error2) {
+                    NSLog(@"%@", posts2);
+                    // Check if we get posts at the next page
+                    XCTAssertNotNil(posts2);
+                    XCTAssertNotEqual([posts2 count], 0);
+                    [expectation fulfill];
+
+                    // Check if the next page is different to the first page
+                    XCTAssertNotEqual(((Post *)posts.firstObject).caption, ((Post *)posts2.firstObject).caption);
+                }
+            }];
+        }
     }];
-    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+    [self waitForExpectationsWithTimeout:8.0 handler:^(NSError *error) {
         if (error) {
             NSLog(@"Timeout Error: %@", error);
         }
     }];
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
 
 - (void)testPerformanceExample {
