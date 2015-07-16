@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PagedScrollViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    PagedScrollViewController *pagedScrollViewController = [[PagedScrollViewController alloc] initWithNibName:@"PagedScrollViewController" bundle:nil];
+    UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:pagedScrollViewController];
+    self.window.rootViewController = naviController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
