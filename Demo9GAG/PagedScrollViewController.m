@@ -7,7 +7,7 @@
 //
 
 #import "PagedScrollViewController.h"
-#import "ImagesTableViewController.h"
+#import "PostsTableViewController.h"
 #import "Downloader.h"
 
 static NSUInteger kNumberOfPages = 3;
@@ -46,7 +46,7 @@ static NSUInteger kNumberOfPages = 3;
     pageNumber = (int)kNumberOfPages;
 
     for (unsigned i = 0; i < pageNumber; i++) {
-        ImagesTableViewController *controller = [[ImagesTableViewController alloc] initWithNibName:@"ImagesTableViewController" bundle:nil];
+        PostsTableViewController *controller = [[PostsTableViewController alloc] initWithNibName:@"PostsTableViewController" bundle:nil];
         CGRect frame = _scrollView.frame;
         frame.origin.x = frame.size.width * i;
         frame.origin.y = 0;
@@ -67,7 +67,7 @@ static NSUInteger kNumberOfPages = 3;
     CGFloat pageWidth = _scrollView.frame.size.width;
     _currentPage = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     ;
-    ImagesTableViewController *controller = [_viewControllers objectAtIndex:_currentPage];
+    PostsTableViewController *controller = [_viewControllers objectAtIndex:_currentPage];
     [controller.tableView flashScrollIndicators];
 }
 

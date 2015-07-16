@@ -1,18 +1,18 @@
 //
-//  ImagesTableViewController.m
+//  PostsTableViewController.m
 //  Demo9GAG
 //
 //  Created by Vince Yuan on 16/7/15.
 //  Copyright © 2015 Vince Yuan. All rights reserved.
 //
 
-#import "ImagesTableViewController.h"
+#import "PostsTableViewController.h"
 
-@interface ImagesTableViewController ()
+@interface PostsTableViewController ()
 
 @end
 
-@implementation ImagesTableViewController
+@implementation PostsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

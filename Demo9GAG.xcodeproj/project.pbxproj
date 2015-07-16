@@ -16,8 +16,8 @@
 		616ADB021B565E8800E50AF6 /* Demo9GAGUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 616ADB011B565E8800E50AF6 /* Demo9GAGUITests.m */; };
 		619A0F981B575E92001C5EEC /* PagedScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619A0F961B575E92001C5EEC /* PagedScrollViewController.m */; };
 		619A0F991B575E92001C5EEC /* PagedScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619A0F971B575E92001C5EEC /* PagedScrollViewController.xib */; };
-		619A0F9D1B576445001C5EEC /* ImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619A0F9B1B576445001C5EEC /* ImagesTableViewController.m */; };
-		619A0F9E1B576445001C5EEC /* ImagesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619A0F9C1B576445001C5EEC /* ImagesTableViewController.xib */; };
+		619A0F9D1B576445001C5EEC /* PostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619A0F9B1B576445001C5EEC /* PostsTableViewController.m */; };
+		619A0F9E1B576445001C5EEC /* PostsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619A0F9C1B576445001C5EEC /* PostsTableViewController.xib */; };
 		619A0FA41B57B394001C5EEC /* Downloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 619A0FA31B57B394001C5EEC /* Downloader.m */; };
 		619A0FBA1B57B510001C5EEC /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 619A0FA81B57B510001C5EEC /* AFHTTPRequestOperation.m */; };
 		619A0FBB1B57B510001C5EEC /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 619A0FA81B57B510001C5EEC /* AFHTTPRequestOperation.m */; };
@@ -77,9 +77,9 @@
 		619A0F951B575E92001C5EEC /* PagedScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagedScrollViewController.h; sourceTree = "<group>"; };
 		619A0F961B575E92001C5EEC /* PagedScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagedScrollViewController.m; sourceTree = "<group>"; };
 		619A0F971B575E92001C5EEC /* PagedScrollViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagedScrollViewController.xib; sourceTree = "<group>"; };
-		619A0F9A1B576445001C5EEC /* ImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesTableViewController.h; sourceTree = "<group>"; };
-		619A0F9B1B576445001C5EEC /* ImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewController.m; sourceTree = "<group>"; };
-		619A0F9C1B576445001C5EEC /* ImagesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagesTableViewController.xib; sourceTree = "<group>"; };
+		619A0F9A1B576445001C5EEC /* PostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsTableViewController.h; sourceTree = "<group>"; };
+		619A0F9B1B576445001C5EEC /* PostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsTableViewController.m; sourceTree = "<group>"; };
+		619A0F9C1B576445001C5EEC /* PostsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostsTableViewController.xib; sourceTree = "<group>"; };
 		619A0FA21B57B394001C5EEC /* Downloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Downloader.h; sourceTree = "<group>"; };
 		619A0FA31B57B394001C5EEC /* Downloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Downloader.m; sourceTree = "<group>"; };
 		619A0FA71B57B510001C5EEC /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -165,9 +165,9 @@
 				619A0F951B575E92001C5EEC /* PagedScrollViewController.h */,
 				619A0F961B575E92001C5EEC /* PagedScrollViewController.m */,
 				619A0F971B575E92001C5EEC /* PagedScrollViewController.xib */,
-				619A0F9A1B576445001C5EEC /* ImagesTableViewController.h */,
-				619A0F9B1B576445001C5EEC /* ImagesTableViewController.m */,
-				619A0F9C1B576445001C5EEC /* ImagesTableViewController.xib */,
+				619A0F9A1B576445001C5EEC /* PostsTableViewController.h */,
+				619A0F9B1B576445001C5EEC /* PostsTableViewController.m */,
+				619A0F9C1B576445001C5EEC /* PostsTableViewController.xib */,
 				619A0FA21B57B394001C5EEC /* Downloader.h */,
 				619A0FA31B57B394001C5EEC /* Downloader.m */,
 				619A0FCC1B57B702001C5EEC /* Post.h */,
@@ -343,7 +343,7 @@
 				616ADAEC1B565E8800E50AF6 /* LaunchScreen.storyboard in Resources */,
 				619A0F991B575E92001C5EEC /* PagedScrollViewController.xib in Resources */,
 				616ADAE91B565E8800E50AF6 /* Assets.xcassets in Resources */,
-				619A0F9E1B576445001C5EEC /* ImagesTableViewController.xib in Resources */,
+				619A0F9E1B576445001C5EEC /* PostsTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +378,7 @@
 				619A0FCE1B57B702001C5EEC /* Post.m in Sources */,
 				619A0FC61B57B510001C5EEC /* AFURLRequestSerialization.m in Sources */,
 				616ADAE11B565E8800E50AF6 /* AppDelegate.m in Sources */,
-				619A0F9D1B576445001C5EEC /* ImagesTableViewController.m in Sources */,
+				619A0F9D1B576445001C5EEC /* PostsTableViewController.m in Sources */,
 				616ADADE1B565E8800E50AF6 /* main.m in Sources */,
 				619A0FBC1B57B510001C5EEC /* AFHTTPRequestOperationManager.m in Sources */,
 				619A0FC21B57B510001C5EEC /* AFSecurityPolicy.m in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ImagesTableViewController.h
+//  PostsTableViewController.h
 //  Demo9GAG
 //
 //  Created by Vince Yuan on 16/7/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImagesTableViewController : UITableViewController
+@interface PostsTableViewController : UITableViewController
 
 @end
