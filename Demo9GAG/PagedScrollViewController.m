@@ -11,7 +11,7 @@
 
 static NSUInteger kNumberOfPages = 3;
 
-@interface PagedScrollViewController ()
+@interface PagedScrollViewController () <UIScrollViewDelegate>
 
 @end
 
@@ -19,7 +19,8 @@ static NSUInteger kNumberOfPages = 3;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -51,6 +52,15 @@ static NSUInteger kNumberOfPages = 3;
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     _scrollView.contentSize = CGSizeMake(screenBounds.size.width * pageNumber, screenBounds.size.height);
     _scrollView.delegate = self;
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    CGFloat pageWidth = _scrollView.frame.size.width;
+    _currentPage = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    ;
+    ImagesTableViewController *controller = [_viewControllers objectAtIndex:_currentPage];
+    [controller.tableView flashScrollIndicators];
 }
 
 @end
