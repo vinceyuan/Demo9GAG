@@ -8,6 +8,7 @@
 
 #import "PagedScrollViewController.h"
 #import "ImagesTableViewController.h"
+#import "Downloader.h"
 
 static NSUInteger kNumberOfPages = 3;
 
@@ -21,6 +22,13 @@ static NSUInteger kNumberOfPages = 3;
     [super viewDidLoad];
 
     self.edgesForExtendedLayout = UIRectEdgeNone;
+
+//    Downloader *downloader = [[Downloader alloc] init];
+//    downloader.baseUrl = @"http://infinigag-us.aws.af.cm/hot/";
+//    [downloader downloadWithCompletion:^(NSArray *posts, NSError *error) {
+//        NSLog(@"%@", posts);
+//    }];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
