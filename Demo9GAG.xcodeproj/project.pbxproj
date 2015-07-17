@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		616ADADE1B565E8800E50AF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 616ADADD1B565E8800E50AF6 /* main.m */; };
 		616ADAE11B565E8800E50AF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 616ADAE01B565E8800E50AF6 /* AppDelegate.m */; };
-		616ADAE41B565E8800E50AF6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616ADAE31B565E8800E50AF6 /* ViewController.m */; };
 		616ADAE91B565E8800E50AF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 616ADAE81B565E8800E50AF6 /* Assets.xcassets */; };
 		616ADAEC1B565E8800E50AF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 616ADAEA1B565E8800E50AF6 /* LaunchScreen.storyboard */; };
 		616ADAF71B565E8800E50AF6 /* Demo9GAGTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 616ADAF61B565E8800E50AF6 /* Demo9GAGTests.m */; };
@@ -84,8 +83,6 @@
 		616ADADD1B565E8800E50AF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		616ADADF1B565E8800E50AF6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		616ADAE01B565E8800E50AF6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		616ADAE21B565E8800E50AF6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		616ADAE31B565E8800E50AF6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		616ADAE81B565E8800E50AF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		616ADAEB1B565E8800E50AF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		616ADAED1B565E8800E50AF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -216,32 +213,10 @@
 		616ADADB1B565E8800E50AF6 /* Demo9GAG */ = {
 			isa = PBXGroup;
 			children = (
-				616ADADF1B565E8800E50AF6 /* AppDelegate.h */,
-				616ADAE01B565E8800E50AF6 /* AppDelegate.m */,
-				616ADAE21B565E8800E50AF6 /* ViewController.h */,
-				616ADAE31B565E8800E50AF6 /* ViewController.m */,
-				616ADAE81B565E8800E50AF6 /* Assets.xcassets */,
-				616ADAEA1B565E8800E50AF6 /* LaunchScreen.storyboard */,
-				616ADAED1B565E8800E50AF6 /* Info.plist */,
+				61B28AD31B595C6B007C7E5F /* Model and Utility */,
+				61B28AD41B595C8B007C7E5F /* View */,
+				61B28AD51B595C99007C7E5F /* ViewController */,
 				616ADADC1B565E8800E50AF6 /* Supporting Files */,
-				619A0F951B575E92001C5EEC /* PagedScrollViewController.h */,
-				619A0F961B575E92001C5EEC /* PagedScrollViewController.m */,
-				619A0F971B575E92001C5EEC /* PagedScrollViewController.xib */,
-				61CE68781B589B2300F043D4 /* XibTableViewCell.h */,
-				61CE68791B589B2300F043D4 /* XibTableViewCell.m */,
-				619A0FD01B5802A5001C5EEC /* PostsTableViewCell.h */,
-				619A0FD11B5802A5001C5EEC /* PostsTableViewCell.m */,
-				619A0FD21B5802A5001C5EEC /* PostsTableViewCell.xib */,
-				619A0F9A1B576445001C5EEC /* PostsTableViewController.h */,
-				619A0F9B1B576445001C5EEC /* PostsTableViewController.m */,
-				619A0F9C1B576445001C5EEC /* PostsTableViewController.xib */,
-				619A0FA21B57B394001C5EEC /* Downloader.h */,
-				619A0FA31B57B394001C5EEC /* Downloader.m */,
-				619A0FCC1B57B702001C5EEC /* Post.h */,
-				619A0FCD1B57B702001C5EEC /* Post.m */,
-				61CE68AD1B58E7CA00F043D4 /* LoadMoreTableViewCell.h */,
-				61CE68AE1B58E7CA00F043D4 /* LoadMoreTableViewCell.m */,
-				61CE68AF1B58E7CA00F043D4 /* LoadMoreTableViewCell.xib */,
 			);
 			path = Demo9GAG;
 			sourceTree = "<group>";
@@ -249,6 +224,11 @@
 		616ADADC1B565E8800E50AF6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				616ADADF1B565E8800E50AF6 /* AppDelegate.h */,
+				616ADAE01B565E8800E50AF6 /* AppDelegate.m */,
+				616ADAE81B565E8800E50AF6 /* Assets.xcassets */,
+				616ADAEA1B565E8800E50AF6 /* LaunchScreen.storyboard */,
+				616ADAED1B565E8800E50AF6 /* Info.plist */,
 				616ADADD1B565E8800E50AF6 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -306,6 +286,45 @@
 			);
 			name = AFNetworking;
 			path = AFNetworking/AFNetworking;
+			sourceTree = "<group>";
+		};
+		61B28AD31B595C6B007C7E5F /* Model and Utility */ = {
+			isa = PBXGroup;
+			children = (
+				619A0FCC1B57B702001C5EEC /* Post.h */,
+				619A0FCD1B57B702001C5EEC /* Post.m */,
+				619A0FA21B57B394001C5EEC /* Downloader.h */,
+				619A0FA31B57B394001C5EEC /* Downloader.m */,
+			);
+			name = "Model and Utility";
+			sourceTree = "<group>";
+		};
+		61B28AD41B595C8B007C7E5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				61CE68781B589B2300F043D4 /* XibTableViewCell.h */,
+				61CE68791B589B2300F043D4 /* XibTableViewCell.m */,
+				619A0FD01B5802A5001C5EEC /* PostsTableViewCell.h */,
+				619A0FD11B5802A5001C5EEC /* PostsTableViewCell.m */,
+				619A0FD21B5802A5001C5EEC /* PostsTableViewCell.xib */,
+				61CE68AD1B58E7CA00F043D4 /* LoadMoreTableViewCell.h */,
+				61CE68AE1B58E7CA00F043D4 /* LoadMoreTableViewCell.m */,
+				61CE68AF1B58E7CA00F043D4 /* LoadMoreTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		61B28AD51B595C99007C7E5F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				619A0F951B575E92001C5EEC /* PagedScrollViewController.h */,
+				619A0F961B575E92001C5EEC /* PagedScrollViewController.m */,
+				619A0F971B575E92001C5EEC /* PagedScrollViewController.xib */,
+				619A0F9A1B576445001C5EEC /* PostsTableViewController.h */,
+				619A0F9B1B576445001C5EEC /* PostsTableViewController.m */,
+				619A0F9C1B576445001C5EEC /* PostsTableViewController.xib */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		61CE687B1B589EC300F043D4 /* SDWebImage */ = {
@@ -484,7 +503,6 @@
 			files = (
 				61CE68AC1B589EC300F043D4 /* UIView+WebCacheOperation.m in Sources */,
 				619A0FCA1B57B510001C5EEC /* AFURLSessionManager.m in Sources */,
-				616ADAE41B565E8800E50AF6 /* ViewController.m in Sources */,
 				61CE68AA1B589EC300F043D4 /* UIImageView+HighlightedWebCache.m in Sources */,
 				619A0F981B575E92001C5EEC /* PagedScrollViewController.m in Sources */,
 				619A0FC01B57B510001C5EEC /* AFNetworkReachabilityManager.m in Sources */,

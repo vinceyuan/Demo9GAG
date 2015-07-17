@@ -16,5 +16,5 @@
 @property (strong, nonatomic) NSString *link;
 @property (assign, nonatomic) int voteCount;
 
-
+- (void)parseJSON:(id)dict;
 @end

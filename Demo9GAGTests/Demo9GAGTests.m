@@ -26,6 +26,36 @@
     [super tearDown];
 }
 
+- (void)testParsingPost {
+    NSString *jsonString = @"{\
+    \"id\": \"aBrweKP\",\
+    \"from\": {\
+        \"name\": \"\"\
+    },\
+    \"caption\": \"When I read about the beliefs of Scientologists\",\
+    \"images\": {\
+        \"small\": \"\",\
+        \"normal\": \"http:\\/\\/img-9gag-fun.9cache.com\\/photo\\/aBrweKP_460s.jpg\",\
+        \"large\": \"http:\\/\\/img-9gag-fun.9cache.com\\/photo\\/aBrweKP_700b.jpg\"\
+    },\
+    \"link\": \"http:\\/\\/9gag.com\\/gag\\/aBrweKP\",\
+    \"actions\": {\
+        \"like\": \"http:\\/\\/9gag.com\\/vote\\/like\\/id\\/aBrweKP\",\
+        \"dislike\": \"http:\\/\\/9gag.com\\/vote\\/dislike\\/id\\/aBrweKP\",\
+        \"unlike\": \"http:\\/\\/9gag.com\\/vote\\/unlike\\/id\\/aBrweKP\"\
+    },\
+    \"votes\": {\
+        \"count\": 8474\
+    }\
+    }";
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *e;
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&e];
+    Post *post = [[Post alloc] init];
+    [post parseJSON:dict];
+    XCTAssertEqualObjects(post.postId, @"aBrweKP");
+}
+
 - (void)testDownloader {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Expectations"];
 
@@ -34,7 +64,7 @@
     // Download the first page
     [downloader downloadWithCompletion:^(NSArray *posts, NSError *error) {
         if (!error) {
-            NSLog(@"%@", posts);
+            //NSLog(@"%@", posts);
             // Check if we get posts
             XCTAssertNotNil(posts);
             XCTAssertNotEqual([posts count], 0);
@@ -42,19 +72,23 @@
             // Download the next page
             [downloader downloadWithCompletion:^(NSArray *posts2, NSError *error2) {
                 if (!error2) {
-                    NSLog(@"%@", posts2);
+                    //NSLog(@"%@", posts2);
                     // Check if we get posts at the next page
                     XCTAssertNotNil(posts2);
                     XCTAssertNotEqual([posts2 count], 0);
                     [expectation fulfill];
 
                     // Check if the next page is different to the first page
-                    XCTAssertNotEqual(((Post *)posts.firstObject).caption, ((Post *)posts2.firstObject).caption);
+                    XCTAssertNotEqualObjects(((Post *)posts.firstObject).caption, ((Post *)posts2.firstObject).caption);
+                } else {
+                    NSLog(@"Error in downloading next page: %@", error2);
                 }
             }];
+        } else {
+            NSLog(@"Error in downloading first page: %@", error);
         }
     }];
-    [self waitForExpectationsWithTimeout:8.0 handler:^(NSError *error) {
+    [self waitForExpectationsWithTimeout:10 handler:^(NSError *error) {
         if (error) {
             NSLog(@"Timeout Error: %@", error);
         }

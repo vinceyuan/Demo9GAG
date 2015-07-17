@@ -14,4 +14,13 @@
     return [NSString stringWithFormat:@"%@ \"%@\" %@ %@ %d", self.postId, self.caption, self.imageUrl, self.link, self.voteCount];
 }
 
+- (void)parseJSON:(id)dict {
+    self.postId = [dict valueForKey:@"id"];
+    self.caption = [dict valueForKey:@"caption"];
+    self.imageUrl = [NSURL URLWithString:[dict valueForKeyPath:@"images.normal"]];
+    self.link = [dict valueForKey:@"link"];
+    self.voteCount = [(NSNumber *)[dict valueForKeyPath:@"votes.count"] intValue];
+
+}
+
 @end

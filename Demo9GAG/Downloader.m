@@ -35,25 +35,21 @@
         NSArray *array = [responseObject valueForKey:@"data"];
         for (id item in array) {
             Post *post = [[Post alloc] init];
-            post.postId = [item valueForKey:@"id"];
-            post.caption = [item valueForKey:@"caption"];
-            post.imageUrl = [NSURL URLWithString:[item valueForKeyPath:@"images.normal"]];
-            post.link = [item valueForKey:@"link"];
-            post.voteCount = [(NSNumber *)[item valueForKeyPath:@"votes.count"] intValue];
+            [post parseJSON:item];
             [posts addObject:post];
         }
         _next = [responseObject valueForKeyPath:@"paging.next"];
+        _isDownloading = NO;
         if (completion) {
             completion(posts, nil);
         }
-        _isDownloading = NO;
         NSLog(@"Down");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        _isDownloading = NO;
         if (completion) {
             completion(nil, error);
         }
-        _isDownloading = NO;
     }];
 
     [operation start];
