@@ -58,6 +58,8 @@
 		61CE68AA1B589EC300F043D4 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CE68981B589EC300F043D4 /* UIImageView+HighlightedWebCache.m */; };
 		61CE68AB1B589EC300F043D4 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CE689A1B589EC300F043D4 /* UIImageView+WebCache.m */; };
 		61CE68AC1B589EC300F043D4 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CE689C1B589EC300F043D4 /* UIView+WebCacheOperation.m */; };
+		61CE68B01B58E7CA00F043D4 /* LoadMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CE68AE1B58E7CA00F043D4 /* LoadMoreTableViewCell.m */; };
+		61CE68B11B58E7CA00F043D4 /* LoadMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CE68AF1B58E7CA00F043D4 /* LoadMoreTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +162,9 @@
 		61CE689A1B589EC300F043D4 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		61CE689B1B589EC300F043D4 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		61CE689C1B589EC300F043D4 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		61CE68AD1B58E7CA00F043D4 /* LoadMoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreTableViewCell.h; sourceTree = "<group>"; };
+		61CE68AE1B58E7CA00F043D4 /* LoadMoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreTableViewCell.m; sourceTree = "<group>"; };
+		61CE68AF1B58E7CA00F043D4 /* LoadMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadMoreTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +239,9 @@
 				619A0FA31B57B394001C5EEC /* Downloader.m */,
 				619A0FCC1B57B702001C5EEC /* Post.h */,
 				619A0FCD1B57B702001C5EEC /* Post.m */,
+				61CE68AD1B58E7CA00F043D4 /* LoadMoreTableViewCell.h */,
+				61CE68AE1B58E7CA00F043D4 /* LoadMoreTableViewCell.m */,
+				61CE68AF1B58E7CA00F043D4 /* LoadMoreTableViewCell.xib */,
 			);
 			path = Demo9GAG;
 			sourceTree = "<group>";
@@ -444,6 +452,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61CE68B11B58E7CA00F043D4 /* LoadMoreTableViewCell.xib in Resources */,
 				616ADAEC1B565E8800E50AF6 /* LaunchScreen.storyboard in Resources */,
 				619A0FD41B5802A5001C5EEC /* PostsTableViewCell.xib in Resources */,
 				619A0F991B575E92001C5EEC /* PagedScrollViewController.xib in Resources */,
@@ -489,6 +498,7 @@
 				619A0FCE1B57B702001C5EEC /* Post.m in Sources */,
 				619A0FC61B57B510001C5EEC /* AFURLRequestSerialization.m in Sources */,
 				616ADAE11B565E8800E50AF6 /* AppDelegate.m in Sources */,
+				61CE68B01B58E7CA00F043D4 /* LoadMoreTableViewCell.m in Sources */,
 				61CE68A71B589EC300F043D4 /* UIImage+GIF.m in Sources */,
 				61CE68A91B589EC300F043D4 /* UIImage+WebP.m in Sources */,
 				61CE689E1B589EC300F043D4 /* NSData+ImageContentType.m in Sources */,
@@ -648,6 +658,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Demo9GAG/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vince.yuan.Demo9GAG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -659,6 +670,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Demo9GAG/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vince.yuan.Demo9GAG;
 				PRODUCT_NAME = "$(TARGET_NAME)";

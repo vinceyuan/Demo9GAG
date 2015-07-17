@@ -70,8 +70,8 @@ static NSUInteger kNumberOfPages = 3;
     }
     _viewControllers = controllers;
     _scrollView.pagingEnabled = YES;
-    CGRect screenBounds = [[UIScreen mainScreen] bounds];
-    _scrollView.contentSize = CGSizeMake(screenBounds.size.width * pageNumber, screenBounds.size.height);
+    CGRect scrollViewBounds = _scrollView.bounds;
+    _scrollView.contentSize = CGSizeMake(scrollViewBounds.size.width * pageNumber, scrollViewBounds.size.height);
     _scrollView.delegate = self;
 }
 

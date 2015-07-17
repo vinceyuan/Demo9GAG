@@ -13,20 +13,24 @@
 @implementation Downloader
 
 - (void)downloadWithCompletion:(void (^)(NSArray *posts, NSError *error))completion {
+    if (_isDownloading)
+        return;
+
+    _isDownloading = YES;
     NSString *string = self.baseUrl;
-    if (!_next && [_next length] != 0) {
+    if (_next && [_next length] != 0) {
         string = [string stringByAppendingString:_next];
     }
+    NSLog(@"Loading %@", string);
     NSURL *url = [NSURL URLWithString:string];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
-    // 2
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
 
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
 
-        NSLog(@"Response: %@", responseObject);
+        //NSLog(@"Response: %@", responseObject);
         NSMutableArray *posts = [[NSMutableArray alloc] init];
         NSArray *array = [responseObject valueForKey:@"data"];
         for (id item in array) {
@@ -42,15 +46,16 @@
         if (completion) {
             completion(posts, nil);
         }
-
+        _isDownloading = NO;
+        NSLog(@"Down");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         if (completion) {
             completion(nil, error);
         }
+        _isDownloading = NO;
     }];
 
-    // 5
     [operation start];
 }
 

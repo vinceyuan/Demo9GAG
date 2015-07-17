@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface Downloader : NSObject {
-    NSString *_next;
-
 }
 
 @property (strong, nonatomic) NSString *baseUrl;
+@property (strong, nonatomic) NSString *next;
+@property (readonly, nonatomic) BOOL isDownloading;
 
 - (void)downloadWithCompletion:(void (^)(NSArray *posts, NSError *error))completion;
 

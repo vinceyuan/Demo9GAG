@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    SectionTypePosts = 0,
+    SectionTypeLoadMore,
+} SectionType;
+
 @class Downloader;
 
 @interface PostsTableViewController : UITableViewController {
