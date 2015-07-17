@@ -28,6 +28,7 @@
                 <constraint firstAttribute="bottom" secondItem="ilu-T9-o42" secondAttribute="bottom" id="eeA-bF-OyB"/>
                 <constraint firstItem="ilu-T9-o42" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gvD-60-eNY"/>
             </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
         </view>
     </objects>
 </document>
