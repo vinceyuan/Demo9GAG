@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PostsTableViewController : UITableViewController
+@class Downloader;
+
+@interface PostsTableViewController : UITableViewController {
+    NSMutableArray *_posts;
+    NSMutableArray *_heights;
+}
+
+@property (strong, nonatomic) Downloader *downloader;
 
 @end

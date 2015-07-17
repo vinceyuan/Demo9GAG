@@ -7,12 +7,26 @@
 //
 
 #import "PostsTableViewController.h"
+#import "Downloader.h"
+#import "Post.h"
+#import "XibTableViewCell.h"
+#import "PostsTableViewCell.h"
 
 @interface PostsTableViewController ()
 
 @end
 
 @implementation PostsTableViewController
+
+- (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        _downloader = [[Downloader alloc] init];
+        _posts = [[NSMutableArray alloc] init];
+        _heights = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +36,19 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [_downloader downloadWithCompletion:^(NSArray *posts, NSError *error) {
+        if (error) {
+
+        } else {
+            [_posts addObjectsFromArray:posts];
+            // Add default heights of cells
+            size_t size = [posts count];
+            for (size_t i = 0; i < size; i++) {
+                [_heights addObject:[NSNumber numberWithInt:230]];
+            }
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,20 +63,26 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return [_posts count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier"];
+    static NSString *CellIdentifier = @"PostsTableViewCell";
+    PostsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
+        if (cell == nil) {
+            cell = (PostsTableViewCell *)[PostsTableViewCell cellFromNibNamed:@"PostsTableViewCell"];
+        }
     }
     // Configure the cell...
-    cell.textLabel.text = @"Hello";
-    
+    [cell setupWithPosts:_posts heights:_heights index:indexPath.row];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [_heights[indexPath.row] floatValue];
 }
 
 /*

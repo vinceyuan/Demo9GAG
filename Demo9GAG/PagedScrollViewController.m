@@ -47,6 +47,19 @@ static NSUInteger kNumberOfPages = 3;
 
     for (unsigned i = 0; i < pageNumber; i++) {
         PostsTableViewController *controller = [[PostsTableViewController alloc] initWithNibName:@"PostsTableViewController" bundle:nil];
+        switch (i) {
+            case 0:
+                controller.downloader.baseUrl = @"http://infinigag-us.aws.af.cm/hot/";
+                break;
+            case 1:
+                controller.downloader.baseUrl = @"http://infinigag-us.aws.af.cm/trending/";
+                break;
+            case 2:
+                controller.downloader.baseUrl = @"http://infinigag-us.aws.af.cm/fresh/";
+                break;
+            default:
+                break;
+        }
         CGRect frame = _scrollView.frame;
         frame.origin.x = frame.size.width * i;
         frame.origin.y = 0;

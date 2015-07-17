@@ -1,3 +1,6 @@
 [submodule "Libraries/AFNetworking"]
 	path = Libraries/AFNetworking
 	url = https://github.com/AFNetworking/AFNetworking.git
+[submodule "Libraries/SDWebImage"]
+	path = Libraries/SDWebImage
+	url = https://github.com/rs/SDWebImage.git
