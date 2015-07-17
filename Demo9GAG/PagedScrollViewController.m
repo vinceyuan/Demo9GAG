@@ -9,6 +9,7 @@
 #import "PagedScrollViewController.h"
 #import "PostsTableViewController.h"
 #import "Downloader.h"
+#import "TopPostsTableViewController.h"
 
 static NSUInteger kNumberOfPages = 3;
 
@@ -42,6 +43,8 @@ static NSUInteger kNumberOfPages = 3;
 }
 
 - (void)initScrollPages {
+    CGRect scrollViewBounds = _scrollView.bounds;
+    CGFloat width = scrollViewBounds.size.width;
     NSMutableArray *controllers = [[NSMutableArray alloc] init];
     unsigned pageNumber = 0;
     pageNumber = (int)kNumberOfPages;
@@ -50,9 +53,20 @@ static NSUInteger kNumberOfPages = 3;
         PostsTableViewController *controller = [[PostsTableViewController alloc] initWithNibName:@"PostsTableViewController" bundle:nil];
         switch (i) {
             case 0:
+            {
                 controller.downloader.baseUrl = @"http://infinigag-us.aws.af.cm/hot/";
+
+                TopPostsTableViewController *topPostsCtrl = [[TopPostsTableViewController alloc] initWithNibName:@"TopPostsTableViewController" bundle:nil];
+                topPostsCtrl.tableView.scrollsToTop = NO;
+                UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, TopPostsTableViewCellWidth)];
+                [headerView addSubview:topPostsCtrl.view];
+                topPostsCtrl.view.transform = CGAffineTransformMakeRotation(-M_PI_2);
+                topPostsCtrl.view.frame = CGRectMake(0, 0, width, TopPostsTableViewCellWidth);
+                controller.tableView.tableHeaderView = headerView;
+                [controller addChildViewController:topPostsCtrl];
                 controller.tableView.scrollsToTop = YES;
                 break;
+            }
             case 1:
                 controller.downloader.baseUrl = @"http://infinigag-us.aws.af.cm/trending/";
                 controller.tableView.scrollsToTop = NO;
@@ -74,7 +88,6 @@ static NSUInteger kNumberOfPages = 3;
     }
     _viewControllers = controllers;
     _scrollView.pagingEnabled = YES;
-    CGRect scrollViewBounds = _scrollView.bounds;
     _scrollView.contentSize = CGSizeMake(scrollViewBounds.size.width * pageNumber, scrollViewBounds.size.height);
     _scrollView.delegate = self;
     _scrollView.scrollsToTop = NO;

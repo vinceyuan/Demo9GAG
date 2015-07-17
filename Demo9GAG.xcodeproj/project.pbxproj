@@ -40,6 +40,8 @@
 		619A0FCF1B57B702001C5EEC /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 619A0FCD1B57B702001C5EEC /* Post.m */; };
 		619A0FD31B5802A5001C5EEC /* PostsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 619A0FD11B5802A5001C5EEC /* PostsTableViewCell.m */; };
 		619A0FD41B5802A5001C5EEC /* PostsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619A0FD21B5802A5001C5EEC /* PostsTableViewCell.xib */; };
+		61B28AD91B5964FB007C7E5F /* TopPostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B28AD71B5964FB007C7E5F /* TopPostsTableViewController.m */; };
+		61B28ADA1B5964FB007C7E5F /* TopPostsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B28AD81B5964FB007C7E5F /* TopPostsTableViewController.xib */; };
 		61CE687A1B589B2300F043D4 /* XibTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CE68791B589B2300F043D4 /* XibTableViewCell.m */; };
 		61CE689D1B589EC300F043D4 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CE687D1B589EC300F043D4 /* MKAnnotationView+WebCache.m */; };
 		61CE689E1B589EC300F043D4 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CE687F1B589EC300F043D4 /* NSData+ImageContentType.m */; };
@@ -124,6 +126,9 @@
 		619A0FD01B5802A5001C5EEC /* PostsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsTableViewCell.h; sourceTree = "<group>"; };
 		619A0FD11B5802A5001C5EEC /* PostsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsTableViewCell.m; sourceTree = "<group>"; };
 		619A0FD21B5802A5001C5EEC /* PostsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostsTableViewCell.xib; sourceTree = "<group>"; };
+		61B28AD61B5964FB007C7E5F /* TopPostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPostsTableViewController.h; sourceTree = "<group>"; };
+		61B28AD71B5964FB007C7E5F /* TopPostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPostsTableViewController.m; sourceTree = "<group>"; };
+		61B28AD81B5964FB007C7E5F /* TopPostsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopPostsTableViewController.xib; sourceTree = "<group>"; };
 		61CE68781B589B2300F043D4 /* XibTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XibTableViewCell.h; sourceTree = "<group>"; };
 		61CE68791B589B2300F043D4 /* XibTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XibTableViewCell.m; sourceTree = "<group>"; };
 		61CE687C1B589EC300F043D4 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -323,6 +328,9 @@
 				619A0F9A1B576445001C5EEC /* PostsTableViewController.h */,
 				619A0F9B1B576445001C5EEC /* PostsTableViewController.m */,
 				619A0F9C1B576445001C5EEC /* PostsTableViewController.xib */,
+				61B28AD61B5964FB007C7E5F /* TopPostsTableViewController.h */,
+				61B28AD71B5964FB007C7E5F /* TopPostsTableViewController.m */,
+				61B28AD81B5964FB007C7E5F /* TopPostsTableViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -473,6 +481,7 @@
 			files = (
 				61CE68B11B58E7CA00F043D4 /* LoadMoreTableViewCell.xib in Resources */,
 				616ADAEC1B565E8800E50AF6 /* LaunchScreen.storyboard in Resources */,
+				61B28ADA1B5964FB007C7E5F /* TopPostsTableViewController.xib in Resources */,
 				619A0FD41B5802A5001C5EEC /* PostsTableViewCell.xib in Resources */,
 				619A0F991B575E92001C5EEC /* PagedScrollViewController.xib in Resources */,
 				616ADAE91B565E8800E50AF6 /* Assets.xcassets in Resources */,
@@ -516,6 +525,7 @@
 				619A0FCE1B57B702001C5EEC /* Post.m in Sources */,
 				619A0FC61B57B510001C5EEC /* AFURLRequestSerialization.m in Sources */,
 				616ADAE11B565E8800E50AF6 /* AppDelegate.m in Sources */,
+				61B28AD91B5964FB007C7E5F /* TopPostsTableViewController.m in Sources */,
 				61CE68B01B58E7CA00F043D4 /* LoadMoreTableViewCell.m in Sources */,
 				61CE68A71B589EC300F043D4 /* UIImage+GIF.m in Sources */,
 				61CE68A91B589EC300F043D4 /* UIImage+WebP.m in Sources */,
