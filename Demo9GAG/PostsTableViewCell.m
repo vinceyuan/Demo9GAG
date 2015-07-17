@@ -28,16 +28,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setupWithPosts:(NSArray *)posts index:(NSInteger)index width:(float)width tableView:(UITableView *)tableView {
-
-//    _labelCaption.translatesAutoresizingMaskIntoConstraints = NO;
-//    _imageView.translatesAutoresizingMaskIntoConstraints = NO;
-//    _labelPoints.translatesAutoresizingMaskIntoConstraints = NO;
-//    self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
-//    [_labelCaption layoutIfNeeded];
-//    [_imageView layoutIfNeeded];
-//    [_labelPoints layoutIfNeeded];
-//    [self.contentView layoutIfNeeded];
+- (void)setupWithPosts:(NSArray *)posts index:(NSInteger)index width:(float)width {
 
     if (index >= [posts count])
         return;
@@ -46,6 +37,8 @@
     _labelCaption.text = post.caption;
     _labelPoints.text = [NSString stringWithFormat:@"%d points", post.voteCount];
 
+    // When the image is downloadeded, we show the image directly.
+    // When the image is not downloaded, we download it and then reload this cell.
     float imageHeight;
     if ([[SDWebImageManager sharedManager] diskImageExistsForURL:post.imageUrl]) {
         UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[post.imageUrl absoluteString]];
@@ -53,14 +46,15 @@
         imageHeight = width * image.size.height / image.size.width;
         _imageView.image = image;
     } else {
-        imageHeight = 175;
-        [_imageView sd_setImageWithURL:post.imageUrl placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        imageHeight = DEFAULT_IMAGE_HEIGHT;
+        _imageView.image = nil;
+        [[SDWebImageManager sharedManager] downloadImageWithURL:post.imageUrl options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
 
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
             if (!error) {
-                //[tableView beginUpdates];
-                [tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem: index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-                //[tableView endUpdates];
+                if (self.downloadDelegate && [self.downloadDelegate respondsToSelector:@selector(postsTableViewCellDownloadedPostIndex:)]) {
+                    [self.downloadDelegate postsTableViewCellDownloadedPostIndex:index];
+                }
             }
         }];
     }

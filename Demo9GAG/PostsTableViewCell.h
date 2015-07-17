@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "XibTableViewCell.h"
 
+#define DEFAULT_IMAGE_HEIGHT 240
+
+@protocol PostsTableViewCellDownloadDelegate;
+
 @interface PostsTableViewCell : XibTableViewCell {
 
     __weak IBOutlet UILabel *_labelCaption;
@@ -16,6 +20,14 @@
     __weak IBOutlet UILabel *_labelPoints;
 }
 
-- (void)setupWithPosts:(NSArray *)posts index:(NSInteger)index width:(float)width tableView:(UITableView *)tableView;
+- (void)setupWithPosts:(NSArray *)posts index:(NSInteger)index width:(float)width;
+
+@property (weak, nonatomic) id<PostsTableViewCellDownloadDelegate> downloadDelegate;
+
+@end
+
+@protocol PostsTableViewCellDownloadDelegate <NSObject>
+
+- (void)postsTableViewCellDownloadedPostIndex:(NSInteger)index;
 
 @end

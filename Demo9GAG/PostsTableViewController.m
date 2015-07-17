@@ -13,7 +13,7 @@
 #import "PostsTableViewCell.h"
 #import "SDWebImageManager.h"
 
-@interface PostsTableViewController ()
+@interface PostsTableViewController () <PostsTableViewCellDownloadDelegate>
 
 @end
 
@@ -73,41 +73,36 @@
     PostsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (!cell) {
-        if (cell == nil) {
-            cell = (PostsTableViewCell *)[PostsTableViewCell cellFromNibNamed:@"PostsTableViewCell"];
-        }
+        cell = (PostsTableViewCell *)[PostsTableViewCell cellFromNibNamed:@"PostsTableViewCell"];
     }
+    cell.downloadDelegate = self;
     // Configure the cell...
-    [cell setupWithPosts:_posts index:indexPath.row width:_width tableView:self.tableView];
+    [cell setupWithPosts:_posts index:indexPath.row width:_width];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    float height = 230;
     Post *post = [_posts objectAtIndex:indexPath.row];
+    float imageHeight = DEFAULT_IMAGE_HEIGHT;
     if ([[SDWebImageManager sharedManager] diskImageExistsForURL:post.imageUrl]) {
         UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[post.imageUrl absoluteString]];
-        float imageHeight = _width * image.size.height / image.size.width;
         imageHeight = _width * image.size.height / image.size.width;
-        height = 30 + imageHeight + 25;
     }
+    float height = 30 + imageHeight + 25;
     return height;
 }
 
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+#pragma mark - PostsTableViewCellDownloadDelegate
+- (void)postsTableViewCellDownloadedPostIndex:(NSInteger)index {
+    // Delay reload
+    [self performSelector:@selector(reloadCell:) withObject:[NSNumber numberWithInteger:index] afterDelay:0];
 }
-*/
+
+- (void)reloadCell:(NSNumber *)number {
+    //[tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:[number integerValue] inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //[tableView endUpdates];
+
+}
 
 @end
