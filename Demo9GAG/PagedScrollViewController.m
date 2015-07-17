@@ -51,12 +51,15 @@ static NSUInteger kNumberOfPages = 3;
         switch (i) {
             case 0:
                 controller.downloader.baseUrl = @"http://infinigag-us.aws.af.cm/hot/";
+                controller.tableView.scrollsToTop = YES;
                 break;
             case 1:
                 controller.downloader.baseUrl = @"http://infinigag-us.aws.af.cm/trending/";
+                controller.tableView.scrollsToTop = NO;
                 break;
             case 2:
                 controller.downloader.baseUrl = @"http://infinigag-us.aws.af.cm/fresh/";
+                controller.tableView.scrollsToTop = NO;
                 break;
             default:
                 break;
@@ -74,6 +77,7 @@ static NSUInteger kNumberOfPages = 3;
     CGRect scrollViewBounds = _scrollView.bounds;
     _scrollView.contentSize = CGSizeMake(scrollViewBounds.size.width * pageNumber, scrollViewBounds.size.height);
     _scrollView.delegate = self;
+    _scrollView.scrollsToTop = NO;
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -81,8 +85,13 @@ static NSUInteger kNumberOfPages = 3;
     CGFloat pageWidth = _scrollView.frame.size.width;
     _currentPage = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     ;
+    for (int i = 0; i < 3; i++) {
+        PostsTableViewController *ctrl = [_viewControllers objectAtIndex:i];
+        ctrl.tableView.scrollsToTop = NO;
+    }
     PostsTableViewController *controller = [_viewControllers objectAtIndex:_currentPage];
     [controller.tableView flashScrollIndicators];
+    controller.tableView.scrollsToTop = YES;
     _segmentedControl.selectedSegmentIndex = _currentPage;
 }
 
