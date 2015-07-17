@@ -133,7 +133,7 @@
     if (indexPath.section == SectionTypeLoadMore) {
         [_downloader downloadWithCompletion:^(NSArray *posts, NSError *error) {
             if (error) {
-
+                [self.tableView reloadData];
             } else {
                 [_posts addObjectsFromArray:posts];
                 [self.tableView reloadData];

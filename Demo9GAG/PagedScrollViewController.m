@@ -21,14 +21,15 @@ static NSUInteger kNumberOfPages = 3;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
-//    Downloader *downloader = [[Downloader alloc] init];
-//    downloader.baseUrl = @"http://infinigag-us.aws.af.cm/hot/";
-//    [downloader downloadWithCompletion:^(NSArray *posts, NSError *error) {
-//        NSLog(@"%@", posts);
-//    }];
-
+    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Hot", @"Trending", @"Fresh"]];
+    self.navigationItem.titleView = _segmentedControl;
+    _segmentedControl.selectedSegmentIndex = 0;
+    [_segmentedControl addTarget:self action:@selector(segmentedControlValueChanged) forControlEvents:UIControlEventValueChanged];
+    _segmentedControl.tintColor = [UIColor whiteColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -82,6 +83,13 @@ static NSUInteger kNumberOfPages = 3;
     ;
     PostsTableViewController *controller = [_viewControllers objectAtIndex:_currentPage];
     [controller.tableView flashScrollIndicators];
+    _segmentedControl.selectedSegmentIndex = _currentPage;
 }
 
+- (void)segmentedControlValueChanged {
+    _currentPage = (int)_segmentedControl.selectedSegmentIndex;
+    CGRect frame = _scrollView.frame;
+    frame.origin.x = frame.size.width * _currentPage;
+    [_scrollView scrollRectToVisible:frame animated:YES];
+}
 @end

@@ -11,6 +11,7 @@
 @interface PagedScrollViewController : UIViewController {
     NSMutableArray *_viewControllers;
     int _currentPage;
+    UISegmentedControl *_segmentedControl;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
