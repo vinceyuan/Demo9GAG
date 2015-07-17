@@ -11,6 +11,7 @@
 #import "Post.h"
 #import "XibTableViewCell.h"
 #import "PostsTableViewCell.h"
+#import "SDWebImageManager.h"
 
 @interface PostsTableViewController ()
 
@@ -23,7 +24,6 @@
     if (self) {
         _downloader = [[Downloader alloc] init];
         _posts = [[NSMutableArray alloc] init];
-        _heights = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -36,16 +36,17 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    _width = [UIScreen mainScreen].bounds.size.width;
+
     [_downloader downloadWithCompletion:^(NSArray *posts, NSError *error) {
         if (error) {
 
         } else {
             [_posts addObjectsFromArray:posts];
-            // Add default heights of cells
-            size_t size = [posts count];
-            for (size_t i = 0; i < size; i++) {
-                [_heights addObject:[NSNumber numberWithInt:230]];
-            }
             [self.tableView reloadData];
         }
     }];
@@ -77,12 +78,20 @@
         }
     }
     // Configure the cell...
-    [cell setupWithPosts:_posts heights:_heights index:indexPath.row];
+    [cell setupWithPosts:_posts index:indexPath.row width:_width tableView:self.tableView];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [_heights[indexPath.row] floatValue];
+    float height = 230;
+    Post *post = [_posts objectAtIndex:indexPath.row];
+    if ([[SDWebImageManager sharedManager] diskImageExistsForURL:post.imageUrl]) {
+        UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[post.imageUrl absoluteString]];
+        float imageHeight = _width * image.size.height / image.size.width;
+        imageHeight = _width * image.size.height / image.size.width;
+        height = 30 + imageHeight + 25;
+    }
+    return height;
 }
 
 /*

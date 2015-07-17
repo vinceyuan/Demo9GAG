@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) NSString *postId;
 @property (strong, nonatomic) NSString *caption;
-@property (strong, nonatomic) NSString *imageUrl;
+@property (strong, nonatomic) NSURL *imageUrl;
 @property (strong, nonatomic) NSString *link;
 @property (assign, nonatomic) int voteCount;
 

@@ -12,7 +12,7 @@
 
 @interface PostsTableViewController : UITableViewController {
     NSMutableArray *_posts;
-    NSMutableArray *_heights;
+    float _width;
 }
 
 @property (strong, nonatomic) Downloader *downloader;

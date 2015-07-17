@@ -16,6 +16,6 @@
     __weak IBOutlet UILabel *_labelPoints;
 }
 
-- (void)setupWithPosts:(NSArray *)posts heights:(NSArray *)heights index:(NSInteger)index;
+- (void)setupWithPosts:(NSArray *)posts index:(NSInteger)index width:(float)width tableView:(UITableView *)tableView;
 
 @end

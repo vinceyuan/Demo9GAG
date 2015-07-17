@@ -33,7 +33,7 @@
             Post *post = [[Post alloc] init];
             post.postId = [item valueForKey:@"id"];
             post.caption = [item valueForKey:@"caption"];
-            post.imageUrl = [item valueForKeyPath:@"images.normal"];
+            post.imageUrl = [NSURL URLWithString:[item valueForKeyPath:@"images.normal"]];
             post.link = [item valueForKey:@"link"];
             post.voteCount = [(NSNumber *)[item valueForKeyPath:@"votes.count"] intValue];
             [posts addObject:post];
