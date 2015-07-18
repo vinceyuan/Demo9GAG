@@ -55,7 +55,7 @@
     [post parseJSON:dict];
     XCTAssertEqualObjects(post.postId, @"aBrweKP");
     XCTAssertEqualObjects(post.caption, @"When I read about the beliefs of Scientologists");
-    XCTAssertEqualObjects([post.imageUrl absoluteString], @"http://img-9gag-fun.9cache.com/photo/aBrweKP_460s.jpg");
+    XCTAssertEqualObjects([post.imageUrl absoluteString], @"http://img-9gag-fun.9cache.com/photo/aBrweKP_700b.jpg");
     XCTAssertEqualObjects(post.link, @"http://9gag.com/gag/aBrweKP");
     XCTAssertEqual(post.voteCount, 8474);
 }
@@ -97,13 +97,6 @@
             NSLog(@"Timeout Error: %@", error);
         }
     }];
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-//    [self measureBlock:^{
-//        // Put the code you want to measure the time of here.
-//    }];
 }
 
 @end

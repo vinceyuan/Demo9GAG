@@ -17,7 +17,7 @@
 - (void)parseJSON:(id)dict {
     self.postId = [dict valueForKey:@"id"];
     self.caption = [dict valueForKey:@"caption"];
-    self.imageUrl = [NSURL URLWithString:[dict valueForKeyPath:@"images.normal"]];
+    self.imageUrl = [NSURL URLWithString:[dict valueForKeyPath:@"images.large"]];
     self.link = [dict valueForKey:@"link"];
     self.voteCount = [(NSNumber *)[dict valueForKeyPath:@"votes.count"] intValue];
 

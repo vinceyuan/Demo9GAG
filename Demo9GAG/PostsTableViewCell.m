@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "SDWebImageManager.h"
 #import "SDImageCache.h"
+#import "ProgressImageView.h"
 
 @implementation PostsTableViewCell
 
@@ -42,15 +43,19 @@
     float imageHeight;
     if ([[SDWebImageManager sharedManager] diskImageExistsForURL:post.imageUrl]) {
         UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[post.imageUrl absoluteString]];
-        //[_imageView sd_setImageWithURL:post.imageUrl];
         imageHeight = width * image.size.height / image.size.width;
         _imageView.image = image;
+
     } else {
         imageHeight = DEFAULT_IMAGE_HEIGHT;
         _imageView.image = nil;
+        [_imageView setProgress:0 total:1];
         [[SDWebImageManager sharedManager] downloadImageWithURL:post.imageUrl options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_imageView setProgress:receivedSize total:expectedSize];
+            });
         } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            [_imageView removeProgressView];
             if (!error) {
                 if (self.downloadDelegate && [self.downloadDelegate respondsToSelector:@selector(postsTableViewCellDownloadedPostIndex:)]) {
                     [self.downloadDelegate postsTableViewCellDownloadedPostIndex:index];

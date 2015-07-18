@@ -149,7 +149,7 @@
 
 - (void)reloadCell:(NSNumber *)number {
     //[tableView beginUpdates];
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:[number integerValue] inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:[number integerValue] inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     //[tableView endUpdates];
 
 }

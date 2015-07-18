@@ -42,6 +42,7 @@
 		619A0FD41B5802A5001C5EEC /* PostsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619A0FD21B5802A5001C5EEC /* PostsTableViewCell.xib */; };
 		61B28AD91B5964FB007C7E5F /* TopPostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B28AD71B5964FB007C7E5F /* TopPostsTableViewController.m */; };
 		61B28ADA1B5964FB007C7E5F /* TopPostsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B28AD81B5964FB007C7E5F /* TopPostsTableViewController.xib */; };
+		61C922B61B5A62F80075FD5C /* ProgressImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C922B51B5A62F80075FD5C /* ProgressImageView.m */; };
 		61CE687A1B589B2300F043D4 /* XibTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CE68791B589B2300F043D4 /* XibTableViewCell.m */; };
 		61CE689D1B589EC300F043D4 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CE687D1B589EC300F043D4 /* MKAnnotationView+WebCache.m */; };
 		61CE689E1B589EC300F043D4 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CE687F1B589EC300F043D4 /* NSData+ImageContentType.m */; };
@@ -131,6 +132,8 @@
 		61B28AD61B5964FB007C7E5F /* TopPostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPostsTableViewController.h; sourceTree = "<group>"; };
 		61B28AD71B5964FB007C7E5F /* TopPostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPostsTableViewController.m; sourceTree = "<group>"; };
 		61B28AD81B5964FB007C7E5F /* TopPostsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopPostsTableViewController.xib; sourceTree = "<group>"; };
+		61C922B41B5A62F80075FD5C /* ProgressImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressImageView.h; sourceTree = "<group>"; };
+		61C922B51B5A62F80075FD5C /* ProgressImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressImageView.m; sourceTree = "<group>"; };
 		61CE68781B589B2300F043D4 /* XibTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XibTableViewCell.h; sourceTree = "<group>"; };
 		61CE68791B589B2300F043D4 /* XibTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XibTableViewCell.m; sourceTree = "<group>"; };
 		61CE687C1B589EC300F043D4 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -323,6 +326,8 @@
 				61F354771B59E93F0000B318 /* TopPostsTableViewCell.h */,
 				61F354781B59E93F0000B318 /* TopPostsTableViewCell.m */,
 				61F354791B59E93F0000B318 /* TopPostsTableViewCell.xib */,
+				61C922B41B5A62F80075FD5C /* ProgressImageView.h */,
+				61C922B51B5A62F80075FD5C /* ProgressImageView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -542,6 +547,7 @@
 				61CE689E1B589EC300F043D4 /* NSData+ImageContentType.m in Sources */,
 				61CE68A01B589EC300F043D4 /* SDWebImageCompat.m in Sources */,
 				619A0F9D1B576445001C5EEC /* PostsTableViewController.m in Sources */,
+				61C922B61B5A62F80075FD5C /* ProgressImageView.m in Sources */,
 				616ADADE1B565E8800E50AF6 /* main.m in Sources */,
 				61CE689F1B589EC300F043D4 /* SDImageCache.m in Sources */,
 				61CE68A21B589EC300F043D4 /* SDWebImageDownloader.m in Sources */,

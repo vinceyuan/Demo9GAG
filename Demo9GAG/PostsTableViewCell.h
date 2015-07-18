@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "XibTableViewCell.h"
+#import "ProgressImageView.h"
 
 #define DEFAULT_IMAGE_HEIGHT 240
 
@@ -16,7 +17,7 @@
 @interface PostsTableViewCell : XibTableViewCell {
 
     __weak IBOutlet UILabel *_labelCaption;
-    __weak IBOutlet UIImageView *_imageView;
+    __weak IBOutlet ProgressImageView *_imageView;
     __weak IBOutlet UILabel *_labelPoints;
 }
 
