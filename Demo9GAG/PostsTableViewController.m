@@ -12,6 +12,7 @@
 #import "PostsTableViewCell.h"
 #import "SDWebImageManager.h"
 #import "LoadMoreTableViewCell.h"
+#import "SVProgressHUD.h"
 
 @interface PostsTableViewController () <PostsTableViewCellDownloadDelegate>
 
@@ -63,7 +64,7 @@
     [self.refreshControl beginRefreshing];
     [_downloader downloadWithCompletion:^(NSArray *posts, NSError *error) {
         if (error) {
-
+            [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Failed to load posts. %@", error] maskType:SVProgressHUDMaskTypeGradient];
         } else {
             [_posts removeAllObjects];
             [_posts addObjectsFromArray:posts];
@@ -130,9 +131,13 @@
 
 - (void)tableView:(nonnull UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     if (indexPath.section == SectionTypeLoadMore) {
+        ((LoadMoreTableViewCell *)cell).activityIndicator.hidden = NO;
+        [((LoadMoreTableViewCell *)cell).activityIndicator startAnimating];
         [_downloader downloadWithCompletion:^(NSArray *posts, NSError *error) {
             if (error) {
-                [self.tableView reloadData];
+                [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Failed to load posts. %@", error] maskType:SVProgressHUDMaskTypeGradient];
+                [((LoadMoreTableViewCell *)cell).activityIndicator stopAnimating];
+                ((LoadMoreTableViewCell *)cell).activityIndicator.hidden = YES;
             } else {
                 [_posts addObjectsFromArray:posts];
                 [self.tableView reloadData];
