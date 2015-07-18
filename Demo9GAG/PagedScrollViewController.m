@@ -10,6 +10,7 @@
 #import "PostsTableViewController.h"
 #import "Downloader.h"
 #import "TopPostsTableViewController.h"
+#import "SDImageCache.h"
 
 static NSUInteger kNumberOfPages = 3;
 
@@ -39,7 +40,14 @@ static NSUInteger kNumberOfPages = 3;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+    [self clearImageCache];
+}
+
+- (void)clearImageCache {
+    SDImageCache *imageCache = [SDImageCache sharedImageCache];
+    [imageCache clearMemory];
+    [imageCache clearDisk];
 }
 
 - (void)initScrollPages {

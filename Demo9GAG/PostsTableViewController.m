@@ -52,7 +52,9 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+    // Because we cleaned image cache, we need to reload table view to get correct height for cells
+    [self.tableView reloadData];
 }
 
 - (void)refreshPosts:(UIRefreshControl*)refresh {
