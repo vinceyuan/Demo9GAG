@@ -17,4 +17,6 @@
 @property (assign, nonatomic) int voteCount;
 
 - (void)parseJSON:(id)dict;
+
++ (instancetype)postWithCaption:(NSString *)caption;
 @end

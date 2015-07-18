@@ -9,7 +9,6 @@
 #import "PostsTableViewController.h"
 #import "Downloader.h"
 #import "Post.h"
-#import "XibTableViewCell.h"
 #import "PostsTableViewCell.h"
 #import "SDWebImageManager.h"
 #import "LoadMoreTableViewCell.h"

@@ -23,4 +23,10 @@
 
 }
 
++ (instancetype)postWithCaption:(NSString *)caption {
+    Post *post = [[Post alloc] init];
+    post.caption = caption;
+    return post;
+}
+
 @end

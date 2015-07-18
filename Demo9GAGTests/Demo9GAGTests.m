@@ -54,6 +54,10 @@
     Post *post = [[Post alloc] init];
     [post parseJSON:dict];
     XCTAssertEqualObjects(post.postId, @"aBrweKP");
+    XCTAssertEqualObjects(post.caption, @"When I read about the beliefs of Scientologists");
+    XCTAssertEqualObjects([post.imageUrl absoluteString], @"http://img-9gag-fun.9cache.com/photo/aBrweKP_460s.jpg");
+    XCTAssertEqualObjects(post.link, @"http://9gag.com/gag/aBrweKP");
+    XCTAssertEqual(post.voteCount, 8474);
 }
 
 - (void)testDownloader {

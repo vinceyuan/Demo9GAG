@@ -61,6 +61,8 @@
 		61CE68AC1B589EC300F043D4 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CE689C1B589EC300F043D4 /* UIView+WebCacheOperation.m */; };
 		61CE68B01B58E7CA00F043D4 /* LoadMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CE68AE1B58E7CA00F043D4 /* LoadMoreTableViewCell.m */; };
 		61CE68B11B58E7CA00F043D4 /* LoadMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CE68AF1B58E7CA00F043D4 /* LoadMoreTableViewCell.xib */; };
+		61F3547A1B59E93F0000B318 /* TopPostsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F354781B59E93F0000B318 /* TopPostsTableViewCell.m */; };
+		61F3547B1B59E93F0000B318 /* TopPostsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61F354791B59E93F0000B318 /* TopPostsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +169,9 @@
 		61CE68AD1B58E7CA00F043D4 /* LoadMoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreTableViewCell.h; sourceTree = "<group>"; };
 		61CE68AE1B58E7CA00F043D4 /* LoadMoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreTableViewCell.m; sourceTree = "<group>"; };
 		61CE68AF1B58E7CA00F043D4 /* LoadMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadMoreTableViewCell.xib; sourceTree = "<group>"; };
+		61F354771B59E93F0000B318 /* TopPostsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPostsTableViewCell.h; sourceTree = "<group>"; };
+		61F354781B59E93F0000B318 /* TopPostsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPostsTableViewCell.m; sourceTree = "<group>"; };
+		61F354791B59E93F0000B318 /* TopPostsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopPostsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +320,9 @@
 				61CE68AD1B58E7CA00F043D4 /* LoadMoreTableViewCell.h */,
 				61CE68AE1B58E7CA00F043D4 /* LoadMoreTableViewCell.m */,
 				61CE68AF1B58E7CA00F043D4 /* LoadMoreTableViewCell.xib */,
+				61F354771B59E93F0000B318 /* TopPostsTableViewCell.h */,
+				61F354781B59E93F0000B318 /* TopPostsTableViewCell.m */,
+				61F354791B59E93F0000B318 /* TopPostsTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -480,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61CE68B11B58E7CA00F043D4 /* LoadMoreTableViewCell.xib in Resources */,
+				61F3547B1B59E93F0000B318 /* TopPostsTableViewCell.xib in Resources */,
 				616ADAEC1B565E8800E50AF6 /* LaunchScreen.storyboard in Resources */,
 				61B28ADA1B5964FB007C7E5F /* TopPostsTableViewController.xib in Resources */,
 				619A0FD41B5802A5001C5EEC /* PostsTableViewCell.xib in Resources */,
@@ -519,6 +528,7 @@
 				61CE68A41B589EC300F043D4 /* SDWebImageManager.m in Sources */,
 				61CE68A11B589EC300F043D4 /* SDWebImageDecoder.m in Sources */,
 				619A0FC41B57B510001C5EEC /* AFURLConnectionOperation.m in Sources */,
+				61F3547A1B59E93F0000B318 /* TopPostsTableViewCell.m in Sources */,
 				619A0FBE1B57B510001C5EEC /* AFHTTPSessionManager.m in Sources */,
 				61CE68A51B589EC300F043D4 /* SDWebImagePrefetcher.m in Sources */,
 				61CE68AB1B589EC300F043D4 /* UIImageView+WebCache.m in Sources */,

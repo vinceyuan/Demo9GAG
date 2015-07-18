@@ -21,7 +21,7 @@
     if (_next && [_next length] != 0) {
         string = [string stringByAppendingString:_next];
     }
-    NSLog(@"Loading %@", string);
+    //NSLog(@"Loading %@", string);
     NSURL *url = [NSURL URLWithString:string];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
@@ -43,7 +43,7 @@
         if (completion) {
             completion(posts, nil);
         }
-        NSLog(@"Down");
+        //NSLog(@"Down");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         _isDownloading = NO;

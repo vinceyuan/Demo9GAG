@@ -10,6 +10,12 @@
 
 #define TopPostsTableViewCellWidth 168
 
+typedef enum {
+    TopSectionTypePosts = 0,
+    TopSectionTypeLoadMore,
+} TopSectionType;
+
+
 @interface TopPostsTableViewController : UITableViewController
 
 @end
