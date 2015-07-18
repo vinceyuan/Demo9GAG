@@ -55,4 +55,11 @@
     }
 }
 
+- (void)setImage:(UIImage * __nullable)image {
+    if (image) {
+        [self removeProgressView];
+    }
+    [super setImage:image];
+}
+
 @end
