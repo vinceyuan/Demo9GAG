@@ -11,6 +11,7 @@
 #import "Downloader.h"
 #import "TopPostsTableViewController.h"
 #import "SDImageCache.h"
+#import "SVProgressHUD.h"
 
 static NSUInteger kNumberOfPages = 3;
 
@@ -32,6 +33,8 @@ static NSUInteger kNumberOfPages = 3;
     _segmentedControl.selectedSegmentIndex = 0;
     [_segmentedControl addTarget:self action:@selector(segmentedControlValueChanged) forControlEvents:UIControlEventValueChanged];
     _segmentedControl.tintColor = [UIColor whiteColor];
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Clear" style:UIBarButtonItemStylePlain target:self action:@selector(clearImageCacheAndShowMessage)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -41,13 +44,31 @@ static NSUInteger kNumberOfPages = 3;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
-    [self clearImageCache];
+    [self clearImageCache:nil];
 }
 
-- (void)clearImageCache {
+- (void)clearImageCache:(void (^)())completion {
     SDImageCache *imageCache = [SDImageCache sharedImageCache];
     [imageCache clearMemory];
-    [imageCache clearDisk];
+    [imageCache clearDiskOnCompletion:^{
+        // Because we cleaned image cache, we need to reload table view to get correct height for cells
+        [self reloadTables];
+        if (completion) {
+            completion();
+        }
+    }];
+}
+
+- (void)clearImageCacheAndShowMessage {
+    [self clearImageCache:^{
+        [SVProgressHUD showSuccessWithStatus:@"Succeeded in clearing image cache." maskType:SVProgressHUDMaskTypeGradient];
+    }];
+}
+
+- (void)reloadTables {
+    for (PostsTableViewController *controller in _viewControllers) {
+        [controller.tableView reloadData];
+    }
 }
 
 - (void)initScrollPages {
