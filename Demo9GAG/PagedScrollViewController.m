@@ -60,6 +60,7 @@ static NSUInteger kNumberOfPages = 3;
 }
 
 - (void)clearImageCacheAndShowMessage {
+    [SVProgressHUD showWithStatus:@"Clearing image cache..." maskType:SVProgressHUDMaskTypeGradient];
     [self clearImageCache:^{
         [SVProgressHUD showSuccessWithStatus:@"Succeeded in clearing image cache." maskType:SVProgressHUDMaskTypeGradient];
     }];
