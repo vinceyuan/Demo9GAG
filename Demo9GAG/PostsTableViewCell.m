@@ -63,9 +63,9 @@
             }
         }];
     }
-    _labelCaption.frame = CGRectMake(8, 7, width - 8 * 2, 21);
-    _imageView.frame = CGRectMake(0, 30, width, imageHeight);
-    _labelPoints.frame = CGRectMake(8, imageHeight + 30 + 3, 105, 20);
+    _labelCaption.frame = CGRectMake(LEFT_MARGIN, TOP_MARGIN, width - LEFT_MARGIN - RIGHT_MARGIN, 21);
+    _imageView.frame = CGRectMake(0, _labelCaption.frame.origin.y + _labelCaption.frame.size.height + CAPTION_IMAGE_VERT_INTERVAL, width, imageHeight);
+    _labelPoints.frame = CGRectMake(LEFT_MARGIN, _imageView.frame.origin.y + _imageView.frame.size.height + IMAGE_POINTS_VERT_INTERVAL, POINTS_WIDTH, POINTS_HEIGHT);
 }
 
 @end

@@ -120,7 +120,7 @@
             UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[post.imageUrl absoluteString]];
             imageHeight = _width * image.size.height / image.size.width;
         }
-        float height = 30 + imageHeight + 25;
+        float height = TOP_MARGIN + 21 + CAPTION_IMAGE_VERT_INTERVAL + imageHeight + IMAGE_POINTS_VERT_INTERVAL + POINTS_HEIGHT + BOTTOM_MARGIN;
         return height;
 
     } else {

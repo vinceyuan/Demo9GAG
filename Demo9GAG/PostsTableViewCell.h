@@ -10,7 +10,16 @@
 #import "XibTableViewCell.h"
 #import "ProgressImageView.h"
 
+#define LEFT_MARGIN 8
+#define RIGHT_MARGIN 8
+#define TOP_MARGIN 7
+#define CAPTION_IMAGE_VERT_INTERVAL 2
 #define DEFAULT_IMAGE_HEIGHT 240
+#define IMAGE_POINTS_VERT_INTERVAL 3
+#define POINTS_WIDTH 105
+#define POINTS_HEIGHT 20
+#define BOTTOM_MARGIN 2
+
 
 @protocol PostsTableViewCellDownloadDelegate;
 
