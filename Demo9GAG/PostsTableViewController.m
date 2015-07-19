@@ -112,15 +112,8 @@
 
     if (indexPath.section == SectionTypePosts) {
 
-        // If image is not downloaded, use the default height.
-        // If image is downloaded, calculate height according to the image height/width ratio.
         Post *post = [_posts objectAtIndex:indexPath.row];
-        float imageHeight = DEFAULT_IMAGE_HEIGHT;
-        if ([[SDWebImageManager sharedManager] diskImageExistsForURL:post.imageUrl]) {
-            UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[post.imageUrl absoluteString]];
-            imageHeight = _width * image.size.height / image.size.width;
-        }
-        float height = TOP_MARGIN + 21 + CAPTION_IMAGE_VERT_INTERVAL + imageHeight + IMAGE_POINTS_VERT_INTERVAL + POINTS_HEIGHT + BOTTOM_MARGIN;
+        CGFloat height = [PostsTableViewCell heightOfCellForPost:post width:_width];
         return height;
 
     } else {
