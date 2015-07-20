@@ -43,7 +43,7 @@
         if (completion) {
             completion(posts, nil);
         }
-        //NSLog(@"Down");
+        //NSLog(@"Done");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         _isDownloading = NO;

@@ -30,9 +30,49 @@
     [super tearDown];
 }
 
-- (void)testExample {
+- (void)testScrolling {
     // Use recording to get started writing UI tests.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    XCUIApplication *application = [[XCUIApplication alloc] init];
+
+    XCTAssertEqual([application.scrollViews count], 1);
+
+    XCUIElement *scrollView = [application.scrollViews elementBoundByIndex:0];
+    [scrollView swipeLeft];
+    [scrollView swipeLeft];
+    [scrollView swipeRight];
+    [scrollView swipeRight];
+
+    XCUIElement *pagedscrollviewNavigationBar = application.navigationBars[@"PagedScrollView"];
+    XCUIElement *segmentedControl = [pagedscrollviewNavigationBar.segmentedControls elementBoundByIndex:0];
+    NSLog(@"%@", [segmentedControl debugDescription]);
+
+    [pagedscrollviewNavigationBar.buttons[@"Trending"] tap];
+    [pagedscrollviewNavigationBar.buttons[@"Fresh"] tap];
+    [pagedscrollviewNavigationBar.buttons[@"Hot"] tap];
+
+
+    XCUIElement *tableView = [application.tables elementBoundByIndex:0];
+
+    [tableView swipeDown];
+    [tableView swipeUp];
+    [tableView swipeUp];
+    [tableView swipeUp];
+    [tableView swipeUp];
+    [tableView swipeUp];
+    [tableView swipeUp];
+    [tableView swipeUp];
+    [tableView swipeUp];
+
+    [pagedscrollviewNavigationBar.buttons[@"Clear"] tap];
+
+    [tableView swipeUp];
+    [tableView swipeUp];
+    [tableView swipeUp];
+    [tableView swipeDown];
+    [tableView swipeDown];
+
 }
 
 @end
