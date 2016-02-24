@@ -10,7 +10,7 @@ Demo9GAG is a demo iPhone app which looks and feels like the offical 9GAG app.
 4. Scrolling is very smooth in both vertical and horizontal directions.
 5. Images are downloaded asynchronously and cached.
 6. It shows progress bars when downloading images. (You'd better switch to a slow connection like 3G for better progress bar effects)
-7. The third party data source ([http://infinigag-us.aws.af.cm/](http://infinigag-us.aws.af.cm/)) does not provide each image's width and height. It adjusts the image size after the image is downloaded.
+7. The third party data source ([http://infinigag.k3min.eu/](http://infinigag.k3min.eu/)) does not provide each image's width and height. It adjusts the image size after the image is downloaded. (Many thanks to [https://github.com/k3min/infinigag](https://github.com/k3min/infinigag) project.)
 8. It supports multiple lines of captions. Table view cell's height is calculated correctly.
 9. The top module (horizontal scrolling) is implemented with a transformed uitableview.
 10. Code is clean, well-organized and reusable.
@@ -20,7 +20,7 @@ Demo9GAG is a demo iPhone app which looks and feels like the offical 9GAG app.
 
 ##Issues:
 
-1. The third party data source ([http://infinigag-us.aws.af.cm/](http://infinigag-us.aws.af.cm/)) is slow and not stable. This issue is handled in the app. When there is a problem, just pull to refresh. 
+1. Sometimes the third party data source ([http://infinigag.k3min.eu/](http://infinigag.k3min.eu/)) is not stable. This issue is handled in the app. When there is a problem, just pull to refresh. 
 2. When the unit test fails because the server returns 500(Internal Server Error), just restart the unit test.
 
 ##Third-Party Libraries:
