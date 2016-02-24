@@ -84,7 +84,7 @@ static NSUInteger kNumberOfPages = 3;
         switch (i) {
             case 0:
             {
-                controller.downloader.baseUrl = @"http://infinigag-us.aws.af.cm/hot/";
+                controller.downloader.baseUrl = @"http://infinigag.k3min.eu/hot/";
 
                 TopPostsTableViewController *topPostsCtrl = [[TopPostsTableViewController alloc] initWithNibName:@"TopPostsTableViewController" bundle:nil];
                 topPostsCtrl.tableView.scrollsToTop = NO;
@@ -98,11 +98,11 @@ static NSUInteger kNumberOfPages = 3;
                 break;
             }
             case 1:
-                controller.downloader.baseUrl = @"http://infinigag-us.aws.af.cm/trending/";
+                controller.downloader.baseUrl = @"http://infinigag.k3min.eu/trending/";
                 controller.tableView.scrollsToTop = NO;
                 break;
             case 2:
-                controller.downloader.baseUrl = @"http://infinigag-us.aws.af.cm/fresh/";
+                controller.downloader.baseUrl = @"http://infinigag.k3min.eu/fresh/";
                 controller.tableView.scrollsToTop = NO;
                 break;
             default:

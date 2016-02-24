@@ -35,7 +35,7 @@
 				<key>NSTemporaryExceptionMinimumTLSVersion</key>
 				<string>TLSv1.1</string>
 			</dict>
-			<key>infinigag-us.aws.af.cm</key>
+			<key>infinigag.k3min.eu</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
