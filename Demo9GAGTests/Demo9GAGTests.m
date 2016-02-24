@@ -64,7 +64,7 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"Expectations"];
 
     Downloader *downloader = [[Downloader alloc] init];
-    downloader.baseUrl = @"http://infinigag-us.aws.af.cm/hot/";
+    downloader.baseUrl = @"http://infinigag.k3min.eu/hot/";
     // Download the first page
     [downloader downloadWithCompletion:^(NSArray *posts, NSError *error) {
         if (!error) {
